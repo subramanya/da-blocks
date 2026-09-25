@@ -177,6 +177,12 @@ async function loadLazy(doc) {
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
   if (hash && element) element.scrollIntoView();
 
+  // start below code added for send to Adobe Target fucntionality
+  if (window.location.href.includes('.aem.page')) {
+      import('../tools/sidekick/aem-sites-optimizer-preflight.js');
+   }
+  //end for send to Adobe Target fucntionality
+
   loadHeader(doc.querySelector('header'));
   loadFooter(doc.querySelector('footer'));
 
@@ -216,11 +222,7 @@ if (/\.(stage-ue|ue)\.da\.live$/.test(window.location.hostname)) {
   // eslint-disable-next-line import/no-unresolved
   await import(`${window.hlx.codeBasePath}/ue/scripts/ue.js`).then(({ default: ue }) => ue());
 }
-// start below code added for send to Adobe Target fucntionality
-if (window.location.href.includes('.aem.page')) {
-   import('../tools/sidekick/aem-sites-optimizer-preflight.js');
-}
-//end for send to Adobe Target fucntionality
+
 loadPage();
 
 

@@ -1,5 +1,15 @@
 {
   "project": "DA Block Collection",
   "editUrlLabel": "Document Authoring",
-  "editUrlPattern": "https://da.live/edit#/{{org}}/{{site}}{{pathname}}"
+  "editUrlPattern": "https://da.live/edit#/{{org}}/{{site}}{{pathname}}",
+  "plugins": [
+    {
+      "id": "preflight",
+      "titleI18n": {
+        "en": "Preflight"
+      },
+      "environments": ["preview"],
+      "event": "preflight"
+    }
+  ]
 }

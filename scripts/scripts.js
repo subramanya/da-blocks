@@ -191,6 +191,11 @@ async function loadLazy(doc) {
 function loadDelayed() {
   window.setTimeout(() => import('./delayed.js'), 3000);
   // load anything that can be postponed to the latest here
+  const launchSrc = 'https://assets.adobedtm.com/0fdf44e62125/4ff880397d91/launch-ca2e3ad02682.min.js';
+  const script = document.createElement('script');
+  script.src = launchSrc;
+  script.async = true;
+  document.head.appendChild(script);
 }
 
 async function loadSidekick() {

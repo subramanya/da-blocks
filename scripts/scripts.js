@@ -216,8 +216,14 @@ if (/\.(stage-ue|ue)\.da\.live$/.test(window.location.hostname)) {
   // eslint-disable-next-line import/no-unresolved
   await import(`${window.hlx.codeBasePath}/ue/scripts/ue.js`).then(({ default: ue }) => ue());
 }
-
+// start below code added for send to Adobe Target fucntionality
+if (window.location.href.includes('.aem.page')) {
+   import('../tools/sidekick/aem-sites-optimizer-preflight.js');
+}
+//end for send to Adobe Target fucntionality
 loadPage();
+
+
 
 (function da() {
   const { searchParams } = new URL(window.location.href);
